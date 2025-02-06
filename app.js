@@ -1,24 +1,45 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el
-let nombreAmigos = [];
-
+let amigos = [];
+let lista = document.getElementById('listaAmigos');
 
 function agregarAmigo() {
-    let amigos = document.getElementById ('amigo').value;
+    let capturaValor = document.getElementById ('amigo').value;
+    console.log(capturaValor);
     limpiarCaja();
-    console.log(amigos);
-  if(amigos == ''){
-    alert('ingrese un nombre valido');
-  } else if(!nombreAmigos.includes(amigos)){
-    nombreAmigos.push(amigos);
-    return amigos;
-  }
+  `${capturaValor === '' ? alert ('ingrese un nombre valido') : amigos.push(capturaValor)}`
+  listaAmigosHtml();
 
 }
 
 function limpiarCaja(){
     document.getElementById('amigo').value= '';
 }
-console.log(nombreAmigos);
+console.log(amigos);
 
-let lista = document.getElementById('listaAmigos');
-lista.innerHTML='';
+function actualizarLista(){
+    let lista = document.getElementById('listaAmigos');
+lista.innerHTML ='';
+}
+
+function listaAmigosHtml(){
+    let limpiarLista = document.getElementById('listaAmigos');
+    limpiarLista.innerHTML ='';
+    for(let i =0;i<amigos.length;i++){
+        let li = document.createElement('li');
+        li.innerHTML= `${amigos[i]}`;
+        lista.appendChild(li);
+    }
+    
+}
+
+function sortearAmigo() {
+        if(amigos.length == 0){
+            alert('No hay amigos para Sortear');
+         } else {
+            let amigoSorteado= Math.floor(Math.random()*amigos.length);
+            let resultado = amigos[amigoSorteado];
+              console.log(resultado);
+         }
+}
+
+
