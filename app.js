@@ -6,7 +6,7 @@ function agregarAmigo() {
     let capturaValor = document.getElementById ('amigo').value;
     console.log(capturaValor);
     limpiarCaja();
-  `${capturaValor === '' ? alert ('ingrese un nombre valido') : amigos.push(capturaValor)}`
+  `${capturaValor === '' ? alert ('Por Favor, Ingrese un nombre valido') : amigos.push(capturaValor)}`
   listaAmigosHtml();
 
 }
@@ -25,7 +25,7 @@ function listaAmigosHtml(){
     actualizarLista();
     for(let i =0;i<amigos.length;i++){
         let li = document.createElement('li');
-        li.innerHTML= `${amigos[i]}`;
+        li.innerHTML= amigos[i];
         lista.appendChild(li);
     }
     
