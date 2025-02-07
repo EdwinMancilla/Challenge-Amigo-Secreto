@@ -22,8 +22,7 @@ lista.innerHTML ='';
 }
 
 function listaAmigosHtml(){
-    let limpiarLista = document.getElementById('listaAmigos');
-    limpiarLista.innerHTML ='';
+    actualizarLista();
     for(let i =0;i<amigos.length;i++){
         let li = document.createElement('li');
         li.innerHTML= `${amigos[i]}`;
@@ -39,7 +38,20 @@ function sortearAmigo() {
             let amigoSorteado= Math.floor(Math.random()*amigos.length);
             let resultado = amigos[amigoSorteado];
               console.log(resultado);
+
+              let amigoSeleccionado= document.getElementById('resultado');
+         amigoSeleccionado.innerHTML=`El Amigo Secreto Sorteado es : ${resultado}`;
          }
+         reiniciar();
+
 }
 
+function reiniciar(){
+      amigos = [];
+
+    limpiarCaja()
+    actualizarLista()
+
+    listaAmigosHtml()
+}
 
